@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{f2eddd90-dd4d-4d6f-9525-9b47e4c9330f}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -64,6 +64,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Views\" />
     <Folder Include="Security\" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Facts\Tables\CourseSales.sql" />
@@ -82,5 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LocalDBCompare.scmp" />
+    <None Include="LocalDBPublish.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\AddData.sql" />
   </ItemGroup>
 </Project>

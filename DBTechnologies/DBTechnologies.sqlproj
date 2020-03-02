@@ -65,6 +65,7 @@
     <Folder Include="dbo\Views\" />
     <Folder Include="Security\" />
     <Folder Include="Scripts" />
+    <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Facts\Tables\CourseSales.sql" />
@@ -80,6 +81,11 @@
     <Build Include="dbo\Views\CourseSalesView.sql" />
     <Build Include="Security\Facts.sql" />
     <Build Include="Security\Dimensions.sql" />
+    <Build Include="dbo\Stored Procedures\OpenCoursesSummary.sql" />
+    <Build Include="dbo\Stored Procedures\NumberOfClients.sql" />
+    <Build Include="dbo\Stored Procedures\NumberOfAttendees.sql" />
+    <Build Include="dbo\Stored Procedures\CourseSalesReport.sql" />
+    <Build Include="dbo\Stored Procedures\CourseReport.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocalDBCompare.scmp" />

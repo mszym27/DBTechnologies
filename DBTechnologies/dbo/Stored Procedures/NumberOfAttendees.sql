@@ -8,5 +8,4 @@ BEGIN
 	FROM [dbo].[CourseSalesView]
 	WHERE [IsRecrutationStillOpen] = 1
 	GROUP BY [CourseName], LocationName
-	ORDER BY Planned DESC
 END

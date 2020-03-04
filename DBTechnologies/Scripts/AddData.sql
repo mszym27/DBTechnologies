@@ -8197,7 +8197,7 @@ INSERT [Facts].[CourseSales] ([Id], [CourseId], [ClientId], [SalesRepId], [Locat
 GO
 INSERT [Facts].[CourseSales] ([Id], [CourseId], [ClientId], [SalesRepId], [LocationId], [Date], [Amount], [TotalNetto], [TotalBrutto]) VALUES (6, 5, 8, 3, 3, CAST(N'2019-07-15' AS Date), 10, CAST(20000.00 AS Decimal(18, 2)), CAST(20500.00 AS Decimal(18, 2)))
 GO
-INSERT [Facts].[CourseSales] ([Id], [CourseId], [ClientId], [SalesRepId], [LocationId], [Date], [Amount], [TotalNetto], [TotalBrutto]) VALUES (7, 4, 2, 3, 2, CAST(N'2019-12-07' AS Date), 7, CAST(11500.00 AS Decimal(18, 2)), CAST(12000.00 AS Decimal(18, 2)))
+INSERT [Facts].[CourseSales] ([Id], [CourseId], [ClientId], [SalesRepId], [LocationId], [Date], [Amount], [TotalNetto], [TotalBrutto]) VALUES (7, 4, 2, 3, 2, CAST(N'2019-12-07' AS Date), 15, CAST(11500.00 AS Decimal(18, 2)), CAST(12000.00 AS Decimal(18, 2)))
 GO
 INSERT [Facts].[CourseSales] ([Id], [CourseId], [ClientId], [SalesRepId], [LocationId], [Date], [Amount], [TotalNetto], [TotalBrutto]) VALUES (8, 3, 2, 2, 3, CAST(N'2020-01-10' AS Date), 6, CAST(15000.00 AS Decimal(18, 2)), CAST(15500.00 AS Decimal(18, 2)))
 GO

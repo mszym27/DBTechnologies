@@ -13,8 +13,22 @@
     <DataSet Name="ReportDataSet">
       <Query>
         <DataSourceName>LocalDB</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@CompanyIds">
+            <Value>=Join(Parameters!CompanyIds.Value, ",")</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+          <QueryParameter Name="@CourseIds">
+            <Value>=Join(Parameters!CourseIds.Value, ",")</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+          <QueryParameter Name="@SalesRepIds">
+            <Value>=Join(Parameters!SalesRepIds.Value, ",")</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
+        </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>CourseReport</CommandText>
+        <CommandText>CourseSalesReport</CommandText>
       </Query>
       <Fields>
         <Field Name="SalesRep">
@@ -32,6 +46,57 @@
         <Field Name="Sale">
           <DataField>Sale</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="SalesReps">
+      <Query>
+        <DataSourceName>LocalDB</DataSourceName>
+        <CommandText>SELECT [Id], [Name] + ' ' + [Surname] AS Fullname
+FROM [Dimensions].[SalesReps]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Fullname">
+          <DataField>Fullname</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Courses">
+      <Query>
+        <DataSourceName>LocalDB</DataSourceName>
+        <CommandText>SELECT [Id] , [Name]
+FROM [Dimensions].[Courses]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Companies">
+      <Query>
+        <DataSourceName>LocalDB</DataSourceName>
+        <CommandText>SELECT [Id], [Name]
+FROM [Dimensions].[Companies]</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -69,7 +134,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Przedstawiciel</Value>
+                                  <Value>Przedstawicel</Value>
                                   <Style>
                                     <FontFamily>Arial</FontFamily>
                                     <FontSize>11pt</FontSize>
@@ -360,7 +425,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>ReportDataSet</DataSetName>
-            <Top>0.52083in</Top>
+            <Top>0.49944in</Top>
             <Height>0.5in</Height>
             <Width>5.96875in</Width>
             <Style>
@@ -376,7 +441,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>WYNIKI SPRZEDAŻY</Value>
+                    <Value>WYNIKI PRZEDSTAWICIELI</Value>
                     <Style>
                       <FontFamily>Segoe UI Light</FontFamily>
                       <FontSize>24pt</FontSize>
@@ -399,7 +464,7 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>1.02083in</Height>
+        <Height>0.99944in</Height>
         <Style />
       </Body>
       <Width>5.96875in</Width>
@@ -412,10 +477,83 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="SalesRepIds">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>SalesReps</DataSetName>
+          <ValueField>Id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Sprzedawca</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>SalesReps</DataSetName>
+          <ValueField>Id</ValueField>
+          <LabelField>Fullname</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="CompanyIds">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Companies</DataSetName>
+          <ValueField>Id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Firma klienta</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Companies</DataSetName>
+          <ValueField>Id</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="CourseIds">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <DataSetReference>
+          <DataSetName>Courses</DataSetName>
+          <ValueField>Id</ValueField>
+        </DataSetReference>
+      </DefaultValue>
+      <Prompt>Kurs</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Courses</DataSetName>
+          <ValueField>Id</ValueField>
+          <LabelField>Name</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>SalesRepIds</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>CompanyIds</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>CourseIds</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <Language>pl-PL</Language>

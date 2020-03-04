@@ -7,32 +7,23 @@
       <FullPath>LocalDB.rds</FullPath>
     </ProjectItem>
   </DataSources>
-  <DataSets>
-    <ProjectItem>
-      <Name>SalesReps.rsd</Name>
-      <FullPath>SalesReps.rsd</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Courses.rsd</Name>
-      <FullPath>Courses.rsd</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Companies.rsd</Name>
-      <FullPath>Companies.rsd</FullPath>
-    </ProjectItem>
-  </DataSets>
+  <DataSets />
   <Reports>
     <ProjectItem>
       <Name>CourseReport.rdl</Name>
       <FullPath>CourseReport.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>GlobalReport.rdl</Name>
+      <FullPath>GlobalReport.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>NumberOfAttendees.rdl</Name>
       <FullPath>NumberOfAttendees.rdl</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>GlobalReport.rdl</Name>
-      <FullPath>GlobalReport.rdl</FullPath>
+      <Name>CourseSalesReport.rdl</Name>
+      <FullPath>CourseSalesReport.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

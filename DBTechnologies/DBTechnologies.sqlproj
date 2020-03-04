@@ -66,6 +66,7 @@
     <Folder Include="Security\" />
     <Folder Include="Scripts" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Functions\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Facts\Tables\CourseSales.sql" />
@@ -86,6 +87,7 @@
     <Build Include="dbo\Stored Procedures\NumberOfAttendees.sql" />
     <Build Include="dbo\Stored Procedures\CourseSalesReport.sql" />
     <Build Include="dbo\Stored Procedures\CourseReport.sql" />
+    <Build Include="dbo\Functions\SplitIds.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LocalDBCompare.scmp" />
